@@ -11,4 +11,9 @@ export class HomePage {
 
   }
 
+  mensagem(param:string){
+    alert(param);
+
+  }
+
 }
