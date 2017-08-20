@@ -25,7 +25,7 @@ export class MoovieProvider {
   }
 
   public getPopular() {
-    let url: String = "/movie/popular?api_key=cedefa171b72cf2050e42e7a60f1c4d2";
+    let url: String = "/movie/popular?api_key=apiky";
 
     return this.http.get(this.base + url.toString());
   }
