@@ -14,43 +14,55 @@
 
 
 <ion-content padding>
-  <div>
-    <h1>{{usuario.nomeUsuario}}</h1>
-    <!-- <button ng-click="somaDoisNumeros(1,2)" >soma 1 mais 2</button> -->
-    <button ion-button (click)="somaDoisNumeros(2,2);">Button</button>
-  </div>
-  <ion-card>
 
+  <ion-card *ngFor="let filme of movies">
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/images/avatar.png">
+        <img [src]="'https://image.tmdb.org/t/p/w500/'+filme.backdrop_path">
       </ion-avatar>
-      <h2 class="feed_title">Marty McFly</h2>
-      <p>November 5, 1955</p>
+      <h2 class="feed_title">{{filme.original_title}}</h2>
+      <p>{{filme.release_date}}</p>
     </ion-item>
 
-    <img src="assets/images/macfly.png">
+    <img [src] = "'https://image.tmdb.org/t/p/w500/'+filme.backdrop_path">
 
     <ion-card-content>
-      <p>Passeando por londres.</p>
+      <p>{{filme.overview}}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{feed.urlAvatar}}">
+      </ion-avatar>
+      <h2 class="feed_title">{{feed.title}}</h2>
+      <p>{{feed.data}}</p>
+    </ion-item>
+
+    <img src="{{feed.urlImagem}}">
+
+    <ion-card-content>
+      <p>{{feed.describe}}</p>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+        <div>{{feed.qtdLikes}} Likes</div>
       </button>
       </ion-col>
       <ion-col>
         <button ion-button icon-left clear small>
         <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+        <div>{{feed.qtdComments}} Comments</div>
       </button>
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          11h ago
+          {{feed.timeLAstModify}}
         </ion-note>
       </ion-col>
     </ion-row>
